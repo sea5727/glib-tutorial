@@ -1,0 +1,7 @@
+add_executable(ex1 ex1.c)
+add_executable(ex2 ex2.c)
+add_executable(ex3 ex3.c)
+add_executable(ex4 ex4.c)
+add_executable(ex5 ex5.c)
+add_executable(udp-recv1 udp-recv1.c)
+add_executable(udp-send1 udp-send1.c)
