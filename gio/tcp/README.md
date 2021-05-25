@@ -37,3 +37,9 @@ g_io_channel_set_encoding(channel, NULL, &error); // if you want to receive a bi
 
 
 
+
+
+## reference
+https://github.com/bratsche/glib/blob/master/gio/tests/socket-server.c
+https://unipro.tistory.com/151
+https://cpp.hotexamples.com/examples/-/-/G_IO_STREAM/cpp-g_io_stream-function-examples.html

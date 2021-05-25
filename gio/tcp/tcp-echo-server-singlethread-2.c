@@ -82,6 +82,17 @@ int
 main(int argc, char* argv[]) {
     pthread_t self = pthread_self();
     g_print("main self:%lu\n", self);
+
+    GSocketService * service = g_threaded_socket_service_new(10);
+    GSocketAddress * server_addr = g_inet_socket_address_new(g_inet_address_new_any(G_SOCKET_FAMILY_IPV4), 3000);
+
+    
+    if(g_socket_listener_add_address(G_SOCKET_LISTENER(service), server_addr, G_SOCKET_TYPE_STREAM, G_SOCKET_PROTOCOL_TCP, NULL, NULL, NULL) == FALSE){
+        return 0;
+    }
+
+    
+    
     
     GSocket * sock = NULL;
     GError * err = NULL;
@@ -103,6 +114,8 @@ main(int argc, char* argv[]) {
         g_error_free(err);
         return 0;
     }
+    
+    g_object_unref(gsockAddr);
 
     if(g_socket_listen(sock, &err) == FALSE){
         g_print("g_socket_bind error code:%d, domain:%u, message:%s\n", err->code, err->domain, err->message);
