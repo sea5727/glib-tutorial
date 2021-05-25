@@ -48,9 +48,15 @@ public:
     Point() {
         a = 100;
     }
-    gint a;
     void print() { 
         //proc a;
     }
+    gint a;
+    
+    gint point_get_private_int(){
+        return private_value;
+    }
+private:
+    gint private_value;
 };
 ```

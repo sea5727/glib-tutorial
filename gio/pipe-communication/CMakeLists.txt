@@ -1,0 +1,1 @@
+add_executable(pipe.exe pipe.c)

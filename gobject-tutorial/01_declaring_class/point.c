@@ -1,9 +1,17 @@
 #include <glib.h>
 #include "point.h"
 
-typedef struct _PointPrivate PointPriavte;
 
-G_DEFINE_TYPE (Point, point, G_TYPE_OBJECT);
+
+struct _PointPrivate{
+    gint private_value;
+};
+
+G_DEFINE_TYPE_WITH_PRIVATE (Point, point, G_TYPE_OBJECT);
+
+
+
+static void point_print(Point * self);
 
 static void
 point_class_init(PointClass * klass){
@@ -19,4 +27,13 @@ point_init (Point * self){
 static void
 point_print(Point * self){
     //proc self->a; 
+}
+
+Point * point_new(void) {
+    return g_object_new(TYPE_POINT, NULL);
+}
+
+gint
+point_get_private_int(Point * self){
+    return self->priv->private_value;
 }

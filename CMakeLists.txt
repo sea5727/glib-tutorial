@@ -26,8 +26,9 @@ endif()
 
 add_subdirectory(hashtable)
 add_subdirectory(gio)
-add_subdirectory(thread)
+# add_subdirectory(thread)
 add_subdirectory(eventloop)
+# add_subdirectory(gobject-tutorial)
 
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})

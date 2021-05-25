@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
 	}
 	while(bytes_read > 0);
 
-    g_io_channel_shutdown(in_channel,TRUE,&error);
+    g_io_channel_shutdown(in_channel,TRUE, &error);
     
 	if(error) {
 		g_print("Error has occured\n");
@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 	 
-	g_io_channel_shutdown(out_channel,TRUE,&error);
+	g_io_channel_shutdown(out_channel,TRUE, &error);
  	if(error) {
 		g_print("Error has occured\n");
 		g_print("Press any key to exit\n");

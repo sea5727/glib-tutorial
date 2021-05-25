@@ -1,5 +1,5 @@
 add_executable(
-    declareing_class_c
+    final_drivable_classes
     main.c 
     parent.c
     child.c

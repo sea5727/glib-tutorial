@@ -78,13 +78,7 @@ MakeChannel(int fd, GMainContext * ctx){
     GIOChannel * channel = g_io_channel_unix_new(fd);
     GError *error = NULL;
     const gchar * encoding = g_io_channel_get_encoding(channel);
-    g_print("channel encoding:%s\n", encoding);
-    g_io_channel_set_encoding(channel, NULL, &error);
-
-    const gchar * now = g_io_channel_get_encoding(channel);
-    g_print("channel encoding now :%s, error:%p\n", now, error);
-    
-    // channel
+    g_io_channel_set_encoding(channel, NULL, &error); // need to read binary data
 
     GSource * src = g_io_create_watch(channel, G_IO_IN);
     g_source_set_callback(src, test_callback, channel, NULL);
