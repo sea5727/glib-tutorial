@@ -1,0 +1,1 @@
+add_executable(gobject2.exe main.c example-student.c)

@@ -8,10 +8,11 @@ if(PKG_CONFIG_FOUND)
     pkg_check_modules(GLIB REQUIRED IMPORTED_TARGET glib-2.0)
     pkg_check_modules(GOBJECT REQUIRED IMPORTED_TARGET gobject-2.0)
     pkg_check_modules(GIO REQUIRED IMPORTED_TARGET gio-2.0)
+    pkg_check_modules (GST REQUIRED IMPORTED_TARGET gstreamer-1.0)
     
-    link_libraries(${GLIB_LIBRARIES} ${GOBJECT_LIBRARIES} ${GIO_LIBRARIES})
-    link_directories(${GLIB_LIBRARY_DIRS} ${GOBJECT_LIBRARY_DIRS} ${GIO_LIBRARY_DIRS})
-    include_directories(${GLIB_INCLUDE_DIRS} ${GOBJECT_INCLUDE_DIRS} ${GIO_INCLUDE_DIRS})
+    link_libraries(${GLIB_LIBRARIES} ${GOBJECT_LIBRARIES} ${GIO_LIBRARIES} ${GST_LIBRARIES})
+    link_directories(${GLIB_LIBRARY_DIRS} ${GOBJECT_LIBRARY_DIRS} ${GIO_LIBRARY_DIRS} ${GST_LIBRARY_DIRS})
+    include_directories(${GLIB_INCLUDE_DIRS} ${GOBJECT_INCLUDE_DIRS} ${GIO_INCLUDE_DIRS} ${GST_INCLUDE_DIRS})
 else()
     include_directories(
         /usr/include/glib-2.0 
@@ -25,10 +26,11 @@ else()
 endif()
 
 add_subdirectory(hashtable)
-add_subdirectory(gio)
+# add_subdirectory(gio)
 # add_subdirectory(thread)
+add_subdirectory(thread_pool)
 add_subdirectory(eventloop)
-# add_subdirectory(gobject-tutorial)
+add_subdirectory(gobject-tutorial)
 
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
